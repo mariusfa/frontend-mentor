@@ -75,6 +75,7 @@ const App = () => {
                         type='number'
                         onChange={handleAmountChange}
                         value={formData.amount}
+                        onFocus={(e) => e.target.select()}
                     />
                     <label htmlFor='tip'>Select Tip</label>
                     <div>
@@ -85,9 +86,9 @@ const App = () => {
                         <button onClick={() => calcPercentTip(50)}>50%</button>
                         <button onClick={changeCustomInput}>Custom</button>
                     </div>
-                    {isCustom && <input name='tip' type='number' onChange={handleCustomTipChange} value={formData.tip} />}
+                    {isCustom && <input name='tip' type='number' onChange={handleCustomTipChange} onFocus={(e) => e.target.select()} value={formData.tip} />}
                     <label htmlFor='numPeople'>Number of people</label>
-                    <input name='numPeople' type='number' onChange={handlePeopleChange} value={formData.numPeople} />
+                    <input name='numPeople' type='number' onChange={handlePeopleChange} onFocus={(e) => e.target.select()} value={formData.numPeople} />
                 </div>
                 <div>
                     <p>Tip amount</p>
