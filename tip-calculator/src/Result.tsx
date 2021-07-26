@@ -28,14 +28,13 @@ const resetCss = css`
     font-size: inherit;
     font-weight: 700;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius:0.5rem;
     border: 0.2rem; solid hsl(172, 67%, 45%);
     background-color: hsl(172, 67%, 45%);
 
     @media (max-width: 750px) {
-        font-size: 0.5em;
-        padding: 0.25rem;
+        font-size: 0.75em;
         margin-top: 1rem;
 
     }
