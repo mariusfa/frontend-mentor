@@ -46,6 +46,10 @@ const labelCss = css`
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-weight: 500;
+
+    @media (max-width: 750px) {
+        font-size: 0.5em;
+    }
 `;
 
 const inputCss = css`
@@ -66,6 +70,10 @@ const inputCss = css`
     &:focus {
         outline: none !important;
         border: 0.2rem solid hsl(172, 67%, 45%);
+    }
+
+    @media (max-width: 750px) {
+        font-size: 0.5em;
     }
 `;
 
@@ -103,6 +111,10 @@ const buttonCss = (isActive: boolean) => css`
         color: hsl(183, 100%, 15%);
         border: 0.2rem solid hsl(172, 67%, 45%);
     `}
+
+    @media (max-width: 750px) {
+        font-size: 0.5em;
+    }
 `;
 
 const customInputCss = (isCustom: boolean) => css`
@@ -127,10 +139,14 @@ const customInputCss = (isCustom: boolean) => css`
         border: 0.2rem solid hsl(172, 67%, 45%);
         border-radius: 0.25rem;
     }
+
+    @media (max-width: 750px) {
+        font-size: 0.5em;
+    }
 `;
 
 const inputContainerCss = css`
-    padding: 2rem;
+    padding: 0;
 `;
 
 const App = () => {

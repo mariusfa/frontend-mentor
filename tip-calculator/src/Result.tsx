@@ -9,6 +9,10 @@ const resultContainerCss = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+    @media (max-width: 750px) {
+        padding: 2rem;
+    }
 `;
 
 const perPersonContainerCss = css`
@@ -28,6 +32,13 @@ const resetCss = css`
     border-radius:0.5rem;
     border: 0.2rem; solid hsl(172, 67%, 45%);
     background-color: hsl(172, 67%, 45%);
+
+    @media (max-width: 750px) {
+        font-size: 0.5em;
+        padding: 0.25rem;
+        margin-top: 1rem;
+
+    }
 `;
 
 const numberCss = css`
@@ -37,6 +48,10 @@ const numberCss = css`
     font-size: 2.5em;
     padding: 0;
     margin: 0;
+
+    @media (max-width: 750px) {
+        font-size: 1em;
+    }
 `;
 
 const headerTextCss = css`
@@ -45,6 +60,11 @@ const headerTextCss = css`
     color: white;
     padding-top: 0.8rem;
     margin: 0;
+
+    @media (max-width: 750px) {
+        padding-top: 0.3rem;
+        font-size: 0.5em;
+    }
 `;
 
 const subTextCss = css`
@@ -53,6 +73,10 @@ const subTextCss = css`
     color: hsl(184, 14%, 56%);
     padding: 0;
     margin: 0;
+
+    @media (max-width: 750px) {
+        font-size: 0.4em;
+    }
 `;
 
 interface Props {
