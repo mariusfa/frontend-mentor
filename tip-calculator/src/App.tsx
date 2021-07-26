@@ -116,7 +116,6 @@ const App = () => {
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         if (e.target.value.length > 0) {
-            const customTip = Number(e.target.value);
             setCustomTipValue(e.target.value);
             setIsCustom(true);
         } else {
@@ -143,16 +142,6 @@ const App = () => {
             return multiplier * amount;
         }
         return formData.tip;
-    };
-
-    const handleCustomTipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const tip = Number(e.target.value);
-        const { perTip, perTotal } = calcPerPerson(
-            formData.amount,
-            tip,
-            formData.numPeople
-        );
-        setFormData({ ...formData, tip, perTip, perTotal });
     };
 
     const handlePeopleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -184,13 +173,6 @@ const App = () => {
         const perTip = tip / numPeople;
         const perTotal = (amount + tip) / numPeople;
         return { perTip, perTotal };
-    };
-
-    const changeCustomInput = () => {
-        if (isCustom) {
-            calcPercentTip(formData.percentTip);
-        }
-        setIsCustom(!isCustom);
     };
 
     const isActive = (percent: number) => {
