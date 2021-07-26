@@ -268,7 +268,7 @@ const App = () => {
                     <label css={labelCss} htmlFor='numPeople'>
                         Number of people
                     </label>
-                    <img css={iconCss} src={iconPerson} />
+                    <img css={iconCss} src={iconPerson} alt='people' />
                     <input
                         css={inputCss}
                         name='numPeople'

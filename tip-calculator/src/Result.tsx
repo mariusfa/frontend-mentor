@@ -8,7 +8,7 @@ const resultContainerCss = css`
     padding: 3rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
 `;
 
 const perPersonContainerCss = css`
@@ -56,55 +56,54 @@ const subTextCss = css`
 `;
 
 interface Props {
+    amount: number;
+    tip: number;
+    numPeople: number;
+}
+
+const calcPerTotal = (
     amount: number,
     tip: number,
     numPeople: number
-}
-
-
-const calcPerTotal = (amount: number, tip: number, numPeople: number): number => {
+): number => {
     if (!amount || !numPeople) {
-        return 0
+        return 0;
     }
 
     return (amount + tip) / numPeople;
-}
+};
 
 const calcPerTip = (amount: number, tip: number, numPeople: number): number => {
     if (!amount || !numPeople) {
-        return 0
+        return 0;
     }
 
     return tip / numPeople;
-}
+};
 
-const Result: React.FC<Props> = ({ amount, tip, numPeople}) => {
-
+const Result: React.FC<Props> = ({ amount, tip, numPeople }) => {
     const perTotal = calcPerTotal(amount, tip, numPeople).toFixed(2);
     const perTip = calcPerTip(amount, tip, numPeople).toFixed(2);
 
     console.log(amount);
-    
 
     return (
-            <div css={resultContainerCss}>
-                    <div css={perPersonContainerCss}>
-                        <div>
-                            <p css={headerTextCss}>Tip Amount</p>
-                            <p css={subTextCss}>/ person</p>
-                        </div>
-                        <p css={numberCss}>${perTotal}</p>
-                        <div>
-                            <p css={headerTextCss}>Total</p>
-                            <p css={subTextCss}>/ person</p>
-                        </div>
-                        <p css={numberCss}>${perTip}</p>
-                    </div>
-                    <button css={resetCss}>
-                        RESET
-                    </button>
+        <div css={resultContainerCss}>
+            <div css={perPersonContainerCss}>
+                <div>
+                    <p css={headerTextCss}>Tip Amount</p>
+                    <p css={subTextCss}>/ person</p>
                 </div>
+                <p css={numberCss}>${perTotal}</p>
+                <div>
+                    <p css={headerTextCss}>Total</p>
+                    <p css={subTextCss}>/ person</p>
+                </div>
+                <p css={numberCss}>${perTip}</p>
+            </div>
+            <button css={resetCss}>RESET</button>
+        </div>
     );
-}
+};
 
-export default Result
+export default Result;
