@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import logo from './logo.svg';
 import iconDollar from './icon-dollar.svg';
+import iconPerson from './icon-person.svg';
+import Result from './Result';
 
 const initState = {
     amount: 0,
@@ -26,15 +28,24 @@ const containerCss = css`
     border-radius: 1.25rem;
     margin: 0 auto;
     padding: 2rem;
-    display: inline-grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-gap: 1rem;
+    max-width: 920px;
+
+    @media (max-width: 750px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
 `;
 
 const labelCss = css`
     display: block;
     color: hsl(186, 14%, 43%);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 `;
 
 const inputCss = css`
@@ -43,16 +54,18 @@ const inputCss = css`
     height: 2rem;
     border: 0.2rem solid hsl(189, 41%, 97%);
     background-color: hsl(189, 41%, 97%);
-    color: hsl(186, 14%, 43%);
+    color: hsl(183, 100%, 15%);
     font-weight: 700;
+    font-family: inherit;
     font-size: inherit;
     border-radius: 0.25rem;
     padding: 1rem;
     box-sizing: border-box;
+    margin-bottom: 2rem;
 
     &:focus {
         outline: none !important;
-        border: 0.2rem solid hsl(185, 41%, 84%);
+        border: 0.2rem solid hsl(172, 67%, 45%);
     }
 `;
 
@@ -66,21 +79,29 @@ const tipGridCss = css`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+
+    @media (max-width: 420px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
 `;
 
 const buttonCss = (isActive: boolean) => css`
     padding: 0.75rem;
     border-radius: 0.25rem;
-    background-color: hsl(186, 14%, 43%);
+    background-color: hsl(183, 100%, 15%);
     color: hsl(0, 0%, 100%);
-    border: 0.2rem solid hsl(186, 14%, 43%);
+    border: 0.2rem solid hsl(183, 100%, 15%);
     font-size: inherit;
     font-family: inherit;
+    font-weight: 700;
     ${isActive &&
     `
-        background-color: hsl(185, 41%, 84%);
-        color: hsl(186, 14%, 43%);
-        border: 0.2rem solid hsl(185, 41%, 84%);
+        background-color: hsl(172, 67%, 45%);
+        color: hsl(183, 100%, 15%);
+        border: 0.2rem solid hsl(172, 67%, 45%);
     `}
 `;
 
@@ -89,11 +110,12 @@ const customInputCss = (isCustom: boolean) => css`
     border: 0.2rem solid hsl(189, 41%, 97%);
     text-align: center;
     font-family: inherit;
-    color: hsl(186, 14%, 43%);
+    color: hsl(183, 100%, 15%);
     font-weight: 700;
     font-size: inherit;
+    padding: 0;
     min-width: 0;
-    padding: 0 1rem;
+    width: 100%;
 
     ${isCustom &&
     `
@@ -102,9 +124,13 @@ const customInputCss = (isCustom: boolean) => css`
 
     &:focus {
         outline: none !important;
-        border: 0.2rem solid hsl(185, 41%, 84%);
+        border: 0.2rem solid hsl(172, 67%, 45%);
         border-radius: 0.25rem;
     }
+`;
+
+const inputContainerCss = css`
+    padding: 2rem;
 `;
 
 const App = () => {
@@ -183,11 +209,11 @@ const App = () => {
         <>
             <img css={logoCss} src={logo} alt='logo' />
             <div css={containerCss}>
-                <div>
+                <div css={inputContainerCss}>
                     <label css={labelCss} htmlFor='amount'>
                         Bill
                     </label>
-                    <img css={iconCss} src={iconDollar} alt='logo' />
+                    <img css={iconCss} src={iconDollar} alt='dollar' />
                     <input
                         css={inputCss}
                         name='amount'
@@ -231,9 +257,10 @@ const App = () => {
                             50%
                         </button>
                         <input
-                            type='number'
                             css={customInputCss(isCustom)}
+                            type='number'
                             placeholder='Custom'
+                            size={1}
                             value={customTipValue}
                             onChange={handleCustomTipValueChange}
                         />
@@ -241,6 +268,7 @@ const App = () => {
                     <label css={labelCss} htmlFor='numPeople'>
                         Number of people
                     </label>
+                    <img css={iconCss} src={iconPerson} />
                     <input
                         css={inputCss}
                         name='numPeople'
@@ -250,17 +278,12 @@ const App = () => {
                         value={formData.numPeople}
                     />
                 </div>
-                <div>
-                    <p>Tip amount</p>
-                    <p>/ person</p>
-                    <p>{formData.perTip}</p>
-                    <p>Total</p>
-                    <p>/ person</p>
-                    <p>{formData.perTotal}</p>
-                    <button onClick={() => setFormData(initState)}>
-                        RESET
-                    </button>
-                </div>
+
+                <Result
+                    amount={Number(formData.amount)}
+                    tip={Number(formData.tip) || 0}
+                    numPeople={Number(formData.numPeople)}
+                />
             </div>
         </>
     );
