@@ -48,7 +48,7 @@ const labelCss = css`
     font-weight: 500;
 
     @media (max-width: 750px) {
-        font-size: 0.5em;
+        font-size: 0.75em;
     }
 `;
 
@@ -73,7 +73,7 @@ const inputCss = css`
     }
 
     @media (max-width: 750px) {
-        font-size: 0.5em;
+        font-size: 0.75em;
     }
 `;
 
@@ -113,7 +113,7 @@ const buttonCss = (isActive: boolean) => css`
     `}
 
     @media (max-width: 750px) {
-        font-size: 0.5em;
+        font-size: 0.75em;
     }
 `;
 
@@ -141,7 +141,7 @@ const customInputCss = (isCustom: boolean) => css`
     }
 
     @media (max-width: 750px) {
-        font-size: 0.5em;
+        font-size: 0.75em;
     }
 `;
 

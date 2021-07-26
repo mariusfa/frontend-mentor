@@ -50,7 +50,7 @@ const numberCss = css`
     margin: 0;
 
     @media (max-width: 750px) {
-        font-size: 1em;
+        font-size: 1.25em;
     }
 `;
 
@@ -62,8 +62,8 @@ const headerTextCss = css`
     margin: 0;
 
     @media (max-width: 750px) {
-        padding-top: 0.3rem;
-        font-size: 0.5em;
+        padding-top: 0.2rem;
+        font-size: 0.75em;
     }
 `;
 
@@ -75,7 +75,7 @@ const subTextCss = css`
     margin: 0;
 
     @media (max-width: 750px) {
-        font-size: 0.4em;
+        font-size: 0.5em;
     }
 `;
 
