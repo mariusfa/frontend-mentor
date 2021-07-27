@@ -78,7 +78,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     }, [formData.numPeople]);
 
     return (
-        <>
+        <form>
             <div css={inputContainerCss}>
                 <label css={labelCss} htmlFor='amount'>
                     Bill
@@ -153,7 +153,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
                     placeholder='0'
                 />
             </div>
-        </>
+        </form>
     );
 };
 
