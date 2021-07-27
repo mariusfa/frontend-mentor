@@ -78,7 +78,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     }, [formData.numPeople]);
 
     return (
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
             <div css={inputContainerCss}>
                 <label css={labelCss} htmlFor='amount'>
                     Bill
