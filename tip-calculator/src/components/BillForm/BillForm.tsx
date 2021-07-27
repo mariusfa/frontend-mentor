@@ -32,15 +32,18 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     };
 
     const updateTip = useCallback(() => {
-        const { amount, percentTip } = formData;
+        const { amount, percentTip, customTip } = formData;
         if (amount !== '' && percentTip) {
             const tip = (Number(amount) * percentTip) / 100;
             setFormData({ ...formData, tip: tip.toString(), customTip: ''});
+        } else if (amount !== '' && customTip !== '') {
+            const tip = (Number(amount) * Number(customTip)) / 100;
+            setFormData({ ...formData, tip: tip.toString()});
         } else {
             setFormData({ ...formData, tip: '' , customTip: ''});
         }
         // eslint-disable-next-line
-    }, [formData.amount, formData.percentTip, setFormData]);
+    }, [formData.amount, formData.percentTip, formData.customTip, setFormData]);
 
     const handleCustomTipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
