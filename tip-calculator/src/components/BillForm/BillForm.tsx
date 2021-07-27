@@ -9,6 +9,7 @@ import {
     buttonCss,
     errorContainerCss,
     errorTextCss,
+    fakeInputSubmitCss,
 } from './styles';
 import iconDollar from './icon-dollar.svg';
 import iconPerson from './icon-person.svg';
@@ -18,9 +19,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 interface Props {
     formData: FormData;
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+    resetRef: React.RefObject<HTMLButtonElement>;
 }
 
-const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
+const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const tipButtonClick = (percentTip: number) => {
@@ -62,6 +64,11 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
 
     const isError = errorMessage !== '';
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        resetRef.current?.scrollIntoView();
+    }
+
     useEffect(() => {
         updateTip();
     }, [formData.percentTip, formData.amount, updateTip]);
@@ -78,7 +85,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     }, [formData.numPeople]);
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div css={inputContainerCss}>
                 <label css={labelCss} htmlFor='amount'>
                     Bill
@@ -157,6 +164,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
                     value={formData.numPeople}
                     placeholder='0'
                 />
+                <input type="submit" css={fakeInputSubmitCss} />
             </div>
         </form>
     );

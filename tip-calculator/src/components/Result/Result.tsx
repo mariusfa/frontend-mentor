@@ -12,6 +12,7 @@ import {
 
 interface Props extends FormData {
     reset: () => void;
+    resetRef: React.RefObject<HTMLButtonElement>;
 }
 
 const calcPerTotal = (
@@ -32,7 +33,7 @@ const calcPerTip = (tip: number, numPeople: number): number => {
     return tip / numPeople;
 };
 
-const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, customTip, reset }) => {
+const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, customTip, reset, resetRef }) => {
     const amountNum = Number(amount);
     const tipNum = Number(tip);
     const numPeopleNum = Number(numPeople);
@@ -56,7 +57,7 @@ const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, customTip
                 </div>
                 <p css={numberCss}>${perTotal}</p>
             </div>
-            <button css={resetCss(isResetActive)} onClick={reset}>RESET</button>
+            <button css={resetCss(isResetActive)} ref={resetRef} onClick={reset}>RESET</button>
         </div>
     );
 };

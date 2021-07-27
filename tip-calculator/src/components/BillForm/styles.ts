@@ -144,3 +144,8 @@ export const errorTextCss = css`
         font-size: 0.75em;
     }
 `;
+
+export const fakeInputSubmitCss = css`
+    visibility: hidden; 
+    position: absolute;
+`;

@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { css } from '@emotion/react';
 import logo from './logo.svg';
 import Result from './components/Result/Result';
@@ -41,6 +41,7 @@ const INIT_STATE = {
 
 const App = () => {
     const [formData, setFormData] = useState<FormData>(INIT_STATE);
+    const resetRef = useRef<HTMLButtonElement>(null);
 
     const reset = () => {
         setFormData(INIT_STATE);
@@ -53,10 +54,12 @@ const App = () => {
                 <BillForm
                     formData={formData}
                     setFormData={setFormData}
+                    resetRef={resetRef}
                 />
                 <Result
                     {...formData}
                     reset={reset}
+                    resetRef={resetRef}
                 />
             </div>
         </>
