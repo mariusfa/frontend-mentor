@@ -49,7 +49,6 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
         setFormData({
             ...formData,
             percentTip: null,
-            tip: e.target.value,
             [e.target.name]: e.target.value,
         });
     };
