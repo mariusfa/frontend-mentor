@@ -24,7 +24,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const tipButtonClick = (percentTip: number) => {
-        setFormData({ ...formData, percentTip });
+        setFormData({ ...formData, percentTip, customTip: '' });
     };
 
     const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +32,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     };
 
     const updateTip = useCallback(() => {
+        
         const { amount, percentTip, customTip } = formData;
         if (amount !== '' && percentTip) {
             const tip = (Number(amount) * percentTip) / 100;
@@ -40,7 +41,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
             const tip = (Number(amount) * Number(customTip)) / 100;
             setFormData({ ...formData, tip: tip.toString()});
         } else {
-            setFormData({ ...formData, tip: '' , customTip: ''});
+            setFormData({ ...formData, tip: ''});
         }
         // eslint-disable-next-line
     }, [formData.amount, formData.percentTip, formData.customTip, setFormData]);
@@ -61,6 +62,13 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
 
     const isError = errorMessage !== '';
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        console.log("testing");
+        console.log(formData);
+        
+        e.preventDefault();
+    }
+
     useEffect(() => {
         updateTip();
     }, [formData.percentTip, formData.amount, updateTip]);
@@ -77,7 +85,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     }, [formData.numPeople]);
 
     return (
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
             <div css={inputContainerCss}>
                 <label css={labelCss} htmlFor='amount'>
                     Bill
@@ -96,30 +104,35 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
                 </label>
                 <div css={tipGridCss}>
                     <button
+                        type="button"
                         css={buttonCss(isPercentButtonActive(5))}
                         onClick={() => tipButtonClick(5)}
                     >
                         5%
                     </button>
                     <button
+                        type="button"
                         css={buttonCss(isPercentButtonActive(10))}
                         onClick={() => tipButtonClick(10)}
                     >
                         10%
                     </button>
                     <button
+                        type="button"
                         css={buttonCss(isPercentButtonActive(15))}
                         onClick={() => tipButtonClick(15)}
                     >
                         15%
                     </button>
                     <button
+                        type="button"
                         css={buttonCss(isPercentButtonActive(25))}
                         onClick={() => tipButtonClick(25)}
                     >
                         25%
                     </button>
                     <button
+                        type="button"
                         css={buttonCss(isPercentButtonActive(50))}
                         onClick={() => tipButtonClick(50)}
                     >

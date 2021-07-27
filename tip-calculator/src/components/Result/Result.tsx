@@ -32,7 +32,7 @@ const calcPerTip = (tip: number, numPeople: number): number => {
     return tip / numPeople;
 };
 
-const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, reset }) => {
+const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, customTip, reset }) => {
     const amountNum = Number(amount);
     const tipNum = Number(tip);
     const numPeopleNum = Number(numPeople);
@@ -40,7 +40,7 @@ const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, reset }) 
     const perTotal = calcPerTotal(amountNum, tipNum, numPeopleNum).toFixed(2);
     const perTip = calcPerTip(tipNum, numPeopleNum).toFixed(2);
 
-    const isResetActive = amount !== '' || tip !== '' || numPeople !== '' || percentTip !== null;
+    const isResetActive = amount !== '' || tip !== '' || numPeople !== '' || percentTip !== null || customTip !== '';
 
     return (
         <div css={resultContainerCss}>
