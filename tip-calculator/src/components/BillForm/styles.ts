@@ -103,7 +103,7 @@ export const customInputCss = (isCustom: boolean) => css`
     border-radius: 0.25rem;
     font-weight: 700;
     color: hsl(183, 100%, 15%);
-    padding-inline: 1rem;
+    
 
     &:focus {
         outline: none;
@@ -117,6 +117,7 @@ export const customInputCss = (isCustom: boolean) => css`
     ${isCustom &&
     `
         text-align: right;
+        padding-inline: 1rem;
     `}
     
 `;
