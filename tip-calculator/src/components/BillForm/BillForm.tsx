@@ -36,7 +36,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
         const { amount, percentTip, customTip } = formData;
         if (amount !== '' && percentTip) {
             const tip = (Number(amount) * percentTip) / 100;
-            setFormData({ ...formData, tip: tip.toString(), customTip: ''});
+            setFormData({ ...formData, tip: tip.toString()});
         } else if (amount !== '' && customTip !== '') {
             const tip = (Number(amount) * Number(customTip)) / 100;
             setFormData({ ...formData, tip: tip.toString()});
