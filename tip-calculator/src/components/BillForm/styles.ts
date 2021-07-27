@@ -56,7 +56,7 @@ export const inputCss = css`
 
 export const iconCss = css`
     position: absolute;
-    padding: 0.9rem;
+    padding: 0.75rem;
 `;
 
 export const tipGridCss = css`
