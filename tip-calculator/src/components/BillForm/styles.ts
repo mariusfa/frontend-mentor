@@ -103,6 +103,7 @@ export const customInputCss = (isCustom: boolean) => css`
     border-radius: 0.25rem;
     font-weight: 700;
     color: hsl(183, 100%, 15%);
+    padding-inline: 1rem;
 
     &:focus {
         outline: none;
@@ -122,4 +123,23 @@ export const customInputCss = (isCustom: boolean) => css`
 
 export const inputContainerCss = css`
     padding: 0;
+`;
+
+export const errorContainerCss = css`
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+`;
+
+export const errorTextCss = css`
+    color: #FF9494;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: inherit;
+
+    @media (max-width: 750px) {
+        font-size: 0.75em;
+    }
 `;

@@ -34,6 +34,7 @@ const containerCss = css`
 const INIT_STATE = {
     amount: '',
     tip: '',
+    customTip: '',
     numPeople: '',
     percentTip: null
 };
