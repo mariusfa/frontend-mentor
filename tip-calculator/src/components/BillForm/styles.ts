@@ -122,7 +122,7 @@ export const customInputCss = (isCustom: boolean) => css`
 `;
 
 export const inputContainerCss = css`
-    padding: 0;
+    padding: 2rem;
 `;
 
 export const errorContainerCss = css`

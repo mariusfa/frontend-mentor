@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 export const resultContainerCss = css`
     background-color: hsl(183, 100%, 15%);
     border-radius: 1.25rem;
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

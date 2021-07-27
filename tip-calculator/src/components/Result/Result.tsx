@@ -49,12 +49,12 @@ const Result: React.FC<Props> = ({ amount, tip, numPeople, percentTip, reset }) 
                     <p css={headerTextCss}>Tip Amount</p>
                     <p css={subTextCss}>/ person</p>
                 </div>
-                <p css={numberCss}>${perTotal}</p>
+                <p css={numberCss}>${perTip}</p>
                 <div>
                     <p css={headerTextCss}>Total</p>
                     <p css={subTextCss}>/ person</p>
                 </div>
-                <p css={numberCss}>${perTip}</p>
+                <p css={numberCss}>${perTotal}</p>
             </div>
             <button css={resetCss(isResetActive)} onClick={reset}>RESET</button>
         </div>
