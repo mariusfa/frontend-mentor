@@ -62,13 +62,6 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
 
     const isError = errorMessage !== '';
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log("testing");
-        console.log(formData);
-        
-        e.preventDefault();
-    }
-
     useEffect(() => {
         updateTip();
     }, [formData.percentTip, formData.amount, updateTip]);
@@ -85,7 +78,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData }) => {
     }, [formData.numPeople]);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <div css={inputContainerCss}>
                 <label css={labelCss} htmlFor='amount'>
                     Bill
