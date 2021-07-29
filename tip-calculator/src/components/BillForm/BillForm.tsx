@@ -94,6 +94,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                 <input
                     css={inputCss}
                     id='amount'
+                    name='amount'
                     type='number'
                     onChange={handleFormChange}
                     value={formData.amount}
