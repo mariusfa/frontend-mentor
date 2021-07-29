@@ -93,13 +93,13 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                 <img css={iconCss} src={iconDollar} alt='dollar' />
                 <input
                     css={inputCss}
-                    name='amount'
+                    id='amount'
                     type='number'
                     onChange={handleFormChange}
                     value={formData.amount}
                     placeholder='0'
                 />
-                <label css={labelCss} htmlFor='tip'>
+                <label css={labelCss} htmlFor='customTip'>
                     Select Tip %
                 </label>
                 <div css={tipGridCss}>
@@ -141,7 +141,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                     <input
                         css={customInputCss(isCustomTip)}
                         type='number'
-                        name='customTip'
+                        id='customTip'
                         placeholder='Custom'
                         value={formData.customTip}
                         onChange={handleCustomTipChange}
@@ -158,7 +158,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                 <img css={iconCss} src={iconPerson} alt='people' />
                 <input
                     css={inputCss}
-                    name='numPeople'
+                    id='numPeople'
                     type='number'
                     onChange={handleFormChange}
                     value={formData.numPeople}
