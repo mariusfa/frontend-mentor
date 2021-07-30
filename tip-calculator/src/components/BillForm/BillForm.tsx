@@ -94,6 +94,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                 <input
                     css={inputCss}
                     id='amount'
+                    name='amount'
                     type='number'
                     onChange={handleFormChange}
                     value={formData.amount}
@@ -142,6 +143,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                         css={customInputCss(isCustomTip)}
                         type='number'
                         id='customTip'
+                        name='customTip'
                         placeholder='Custom'
                         value={formData.customTip}
                         onChange={handleCustomTipChange}
@@ -159,6 +161,7 @@ const BillForm: React.FC<Props> = ({ formData, setFormData, resetRef }) => {
                 <input
                     css={inputCss}
                     id='numPeople'
+                    name='numPeople'
                     type='number'
                     onChange={handleFormChange}
                     value={formData.numPeople}
