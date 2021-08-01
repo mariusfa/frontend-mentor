@@ -1,16 +1,12 @@
 /** @jsxImportSource @emotion/react */
+import { Header } from './components/header';
 import { PricingComponent } from './components/pricing-component';
-import { headerCss } from './styles';
-import AppThemeProvider from './theme/ThemeProvider';
+import AppThemeProvider from './theme/AppThemeProvider';
 
 const App = () => {
     return (
         <AppThemeProvider>
-            <header>
-                <h1 css={headerCss}>Simple, traffic-based pricing</h1>
-                <p>Sign-up for our 30-day trial.</p>
-                <p>No credit card required.</p>
-            </header>
+            <Header />
             <main>
                 <PricingComponent />
             </main>
