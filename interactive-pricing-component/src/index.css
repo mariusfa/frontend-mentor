@@ -7,4 +7,10 @@ body {
   background-image: url(bg-pattern.svg);
   background-repeat: no-repeat;
   background-size: 100% 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
 }

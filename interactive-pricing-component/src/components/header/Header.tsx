@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { headerCss, heading1Css, textCss } from "./styles";
+import { headerCss, heading1Css, textCss } from './styles';
 
 const Header = () => {
     return (
